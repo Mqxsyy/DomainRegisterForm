@@ -1,0 +1,169 @@
+span {
+	user-select: none;
+}
+
+/* Button Primary */
+.btn-primary {
+	background-color: #1bd8e5 !important;
+	border-color: #1bd8e5 !important;
+}
+
+.btn-primary:hover {
+	background-color: #80f9ff !important;
+	border-color: #80f9ff !important;
+}
+
+.btn-primary:active {
+	background-color: #0099cc !important;
+	border-color: #0099cc !important;
+}
+
+/* Button Primary Outline */
+.btn-outline-primary {
+	border-color: #1bc5d1 !important;
+	color: #1bc5d1 !important;
+}
+
+.btn-outline-primary:hover {
+	border-color: #67c2c6 !important;
+	color: #67c2c6 !important;
+	background: none !important;
+}
+
+.btn-outline-primary:active {
+	border-color: #0f5b75 !important;
+	color: #0f5b75 !important;
+	background: none !important;
+}
+
+/* Button Light Outline */
+.btn-outline-light {
+	border-color: #f0fcfb !important;
+	color: #f0fcfb !important;
+}
+
+.btn-outline-light:hover {
+	border-color: #afcdc9 !important;
+	color: #afcdc9 !important;
+	background: none !important;
+}
+
+.btn-outline-light:active {
+	border-color: #7db9b1 !important;
+	color: #7db9b1 !important;
+	background: none !important;
+}
+
+/* Background primary */
+.bg-primary {
+	background-color: #e4ffff !important;
+}
+
+/* Background secondary */
+.bg-secondary {
+	background-color: #abffe6 !important;
+}
+
+/* Make new input appear when input contains text */
+input.showNewInput:placeholder-shown ~ .newInput {
+	visibility: hidden;
+	height: 0px;
+}
+
+/* Animations */
+.preload * {
+	animation-duration: 0s !important;
+}
+
+/* Text Animation */
+@keyframes textIn {
+	from {
+		top: 50%;
+		transform: translateY(-50%);
+		margin-left: 0.8rem;
+	}
+	to {
+		top: -5%;
+		margin-left: 0.25rem;
+	}
+}
+
+@keyframes textOut {
+	from {
+		top: -5%;
+		margin-left: 0.25rem;
+	}
+	to {
+		top: 50%;
+		transform: translateY(-50%);
+		margin-left: 0.8rem;
+	}
+}
+
+.animatableText {
+	animation: textIn 0.2s forwards;
+}
+
+input:placeholder-shown ~ .animatableText {
+	animation: textOut 0.2s forwards;
+}
+
+/* Text Animation New Button */
+@keyframes textInNewButton {
+	from {
+		top: 15%;
+		transform: translateY(-12.5%);
+		margin-left: 0.8rem;
+	}
+	to {
+		top: -3%;
+		margin-left: 0.25rem;
+	}
+}
+
+@keyframes textOutNewButton {
+	from {
+		top: -3%;
+		margin-left: 0.25rem;
+	}
+	to {
+		top: 50%;
+		transform: translateY(-50%);
+		margin-left: 0.8rem;
+	}
+}
+
+.animatableTextNewButton {
+	animation: textInNewButton 0.2s forwards;
+}
+
+input:placeholder-shown ~ .animatableTextNewButton {
+	animation: textOutNewButton 0.2s forwards;
+}
+
+/* Container Animation */
+@keyframes containerIn {
+	from {
+		margin-top: 0rem;
+	}
+	to {
+		margin-top: 1.5rem;
+	}
+}
+
+@keyframes containerOut {
+	from {
+		margin-top: 1.5rem;
+	}
+	to {
+		margin-top: 0rem;
+	}
+}
+
+.animatableContainer {
+	animation: containerIn 0.2s forwards;
+}
+
+input.animatableContainer:placeholder-shown {
+	animation: containerOut 0.2s forwards;
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Domain register form</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="style.css" />
+        <script>
+            setTimeout(function(){
+                document.body.className="bg-primary";
+            },500);
+
+            function toggleRequired() {
+                const optionalFieldValue = document.getElementById('optionalField').value.trim();
+                const newField = document.getElementById('newRequired');
+
+
+                if (optionalFieldValue !== '') {
+                    newField.setAttribute('required', 'required');
+                } else {
+                    newField.removeAttribute('required');
+                }
+            }
+
+            function validateForm() {
+                window.location.href = "./purchaseSuccess.html";
+                return false
+            }
+        </script>
+	</head>
+	<body class="bg-primary preload">
+		<header
+			style="
+				background-image: linear-gradient(to bottom right, #72ffcd, #0c757f);
+			"
+		>
+			<div class="container text-center pb-4">
+				<div class="pt-5 pb-3 fw-semibold fs-1">Registreeri enda domeen</div>
+				<div class="mt-4 pt-2 pb-5">
+					<div
+						class="row gx-3 justify-content-center align-items-center"
+						style="position: relative"
+					>
+						<div
+							class="col col-3 fs-6 fw-semibold"
+							style="position: absolute; right: 17.5%"
+						>
+							<div
+								class="border border-4 border-light-subtle rounded-5 py-2 text-dark text-opacity-75"
+								style="background-color: #44dac6"
+							>
+								Ülevaade
+							</div>
+						</div>
+						<div class="col col-3 fs-6 fw-semibold" style="position: absolute; left: 17.5%">
+							<div
+                                class="border border-4 border-light-subtle rounded-5 py-2 text-dark text-opacity-75"
+                                style="background-color: #44dac6"
+							>
+                                Vali domeen
+                            </div>
+                        </div>
+                        <div class="col col-3 fs-5 fw-semibold" style="position: absolute">
+                            <div
+                                class="border border-5 border-light rounded-5 py-2"
+                                style="background-color: #b1fff5"
+                            >
+                                Maksmine
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</header>
+		<main class="container-fluid text-center">
+            <form onsubmit="return validateForm()">
+                <div class="row mx-3">
+                    <div class="col col-9">
+                        <!-- Personal data -->
+                        <div
+                            class="container my-3 px-3 py-2 rounded-4 bg-secondary"
+                        >
+                            <div class="fs-4 fw-semibold mt-2 mb-3">Isikuandmed</div>
+                            <div class="d-flex flex-column-reverse my-2" style="position: relative;">
+                                <input
+                                    type="text"
+                                    class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                    placeholder=""
+                                    required
+                                ></input>           
+                                <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                    <span class="text-dark-emphasis">Ees- ja perekonnanimi<span class="text-danger">*</span></span>
+                                </div>
+                            </div>
+                            <div class="row gx-2 my-2 align-items-end">
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="email"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                            required
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Meiliaadress<span class="text-danger">*</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="tel"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                            required
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Telefoninumber<span class="text-danger">*</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Billing address -->
+                        <div
+                            class="container my-3 px-3 py-2 rounded-4 bg-secondary"
+                        >
+                            <div class="fs-4 fw-semibold mt-2 mb-3">Arveldusaadress</div>
+                            <div class="d-flex flex-column" style="position: relative">
+                                <input
+                                    type="text"
+                                    class="form-control fs-6 py-3 rounded-4 showNewInput animatableContainer"
+                                    placeholder=""
+                                    id="optionalField"
+                                    oninput="toggleRequired()"
+                                />
+                                <div class="text-danger fs-6 animatableTextNewButton" style="position: absolute; pointer-events: none">
+                                    <span class="text-dark-emphasis">Ettevõtte nimi (valikuline)</span>
+                                </div>
+                                <div class="newInput">
+                                    <div class="row gx-2">
+                                        <div class="col-6"></div>
+                                        <div class="col d-flex flex-column-reverse mt-2" style="position: relative">
+                                            <input
+                                                type="number"
+                                                class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                                placeholder=""
+                                                id="newRequired"
+                                            />
+                                            <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                                <span class="text-dark-emphasis">Ettevõtte registreerimisnumber<span class="text-danger">*</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column-reverse my-2" style="position: relative">
+                                <input
+                                    type="text"
+                                    class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                    placeholder=""
+                                    required
+                                />
+                                <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                    <span class="text-dark-emphasis">Riik<span class="text-danger">*</span></span>
+                                </div>
+                            </div>
+                            <div class="row gx-2 my-2 align-items-end">
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="text"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                            required
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Tänava aadress 1<span class="text-danger">*</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="text"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Tänava aadress 2 (valikuline)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gx-2 my-2 align-items-end">
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="text"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                            required
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Linn<span class="text-danger">*</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="text"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                            required
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Maakond<span class="text-danger">*</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gx-2 my-2">
+                                <div class="col-6">
+                                </div>
+                                <div class="col d-flex flex-column-reverse" style="position: relative">
+                                    <input
+                                        type="number"
+                                        class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                        placeholder=""
+                                        required
+                                    />
+                                    <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                        <span class="text-dark-emphasis">Postiindeks<span class="text-danger">*</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Payment method -->
+                        <div
+                            class="container my-3 px-3 py-2 rounded-4 bg-secondary"
+                        >
+                            <div class="fs-4 fw-semibold mt-2 mb-3">Makseandmed</div>
+                            <div class="d-flex flex-column-reverse my-2" style="position: relative">
+                                <input
+                                    type="number"
+                                    class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                    placeholder=""
+                                    required
+                                />
+                                <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                    <span class="text-dark-emphasis">Kaardinumber<span class="text-danger">*</span></span>
+                                </div>
+                            </div>
+                            <div class="row gx-2 my-2 align-items-end">
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="number"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                            required
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Kuu<span class="text-danger">*</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column-reverse" style="position: relative">
+                                        <input
+                                            type="number"
+                                            class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                            placeholder=""
+                                            required
+                                        />
+                                        <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                            <span class="text-dark-emphasis">Aasta<span class="text-danger">*</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row gx-2 my-2">
+                                <div class="col-6">
+                                </div>
+                                <div class="col d-flex flex-column-reverse" style="position: relative">
+                                    <input
+                                        type="number"
+                                        class="form-control fs-6 py-3 rounded-4 animatableContainer"
+                                        placeholder=""
+                                        required
+                                    />
+                                    <div class="text-danger fs-6 animatableText" style="position: absolute; pointer-events: none">
+                                        <span class="text-dark-emphasis">CVV<span class="text-danger">*</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <!-- Shopping Cart -->
+                        <div class="container bg-secondary my-3 p-3 rounded-4">
+                            <div class="col mb-2 fs-4 fw-semibold">Valitud domeenid</div>
+                            <div class="border border-light border-3 rounded-2"></div>
+                            <div class="col my-3">
+                                <div class="row mx-2 my-2">
+                                    <div class="col-11"> 
+                                        <div class="row bg-white rounded-4 py-2">
+                                            <div class="col fs-5 text-start">minudomeen.com</div>
+                                            <div class="col fs-5 text-end">9.99€</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-1 my-auto">
+                                        <img src="./x-symbol.png" style="width: 0.8vw"></img>
+                                    </div>
+                                </div>
+                                <div class="row mx-2 my-2">
+                                    <div class="col-11"> 
+                                        <div class="row bg-white rounded-4 py-2">
+                                            <div class="col fs-5 text-start">sinudomeen.net</div>
+                                            <div class="col fs-5 text-end">5.99€</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-1 my-auto">
+                                        <img src="./x-symbol.png" style="width: 0.8vw"></img>
+                                    </div>
+                                </div>
+                                <div class="row mx-2 my-2">
+                                    <div class="col-11"> 
+                                        <div class="row bg-white rounded-4 py-2">
+                                            <div class="col fs-5 text-start">kassidomeen.eu</div>
+                                            <div class="col fs-5 text-end">4.99€</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-1 my-auto">
+                                        <img src="./x-symbol.png" style="width: 0.8vw"></img>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border border-light border-3 rounded-2"></div>
+                            <div class="row mt-2">
+                                <div class="col fs-5 fw-medium">KOKKU:</div>
+                                <div class="col fs-5 fw-medium">20.97€</div>
+                            </div>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <div class="container my-3 p-3">
+                            <div class="col mb-2">
+                                <input class="btn btn-primary fs-5 fw-bold py-2 border-5 w-100" type="submit" value="Kinnita tellimus">
+                            </div>
+                            <div class="col">
+                                <a href="./select.html">
+                                    <input class="btn border-5 fs-5 fw-bold py-2 btn-outline-primary w-100" type="button" value="Tagasi" formnovalidate>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+	</body>
+</html>
