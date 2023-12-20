@@ -4,8 +4,8 @@ span {
 
 /* Button Primary */
 .btn-primary {
-	background-color: #1bd8e5 !important;
-	border-color: #1bd8e5 !important;
+	background-color: #09cad7 !important;
+	border-color: #09cad7 !important;
 }
 
 .btn-primary:hover {
@@ -54,14 +54,13 @@ span {
 	background: none !important;
 }
 
-/* Background primary */
+/* Background colors */
 .bg-primary {
 	background-color: #e4ffff !important;
 }
 
-/* Background secondary */
 .bg-secondary {
-	background-color: #abffe6 !important;
+	background-color: #b7fff2 !important;
 }
 
 /* Make new input appear when input contains text */
